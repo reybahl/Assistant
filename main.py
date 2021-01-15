@@ -1,5 +1,6 @@
 import pyttsx3
 import speech_recognition as sr
+from backend.intent_classification import IntentClassifier
 
 class Assistant():
 
@@ -24,6 +25,25 @@ class Assistant():
             audio = self.r.listen(source)
 
         return (self.r.recognize_google(audio))
+    
+    def reply(self, text):
+        intent = intentclassifier.predict(text)
+        
+        replies = {
+            "leaving" : self.leave
+            # "greeting" : self.greet
+            }
 
+        reply = replies[intent]
+
+        if callable(reply):
+            reply(text) 
+
+    def leave(self, text):
+        print("Bye bye")
+
+intentclassifier = IntentClassifier()
 assistant = Assistant("Assistant")
-assistant.say(assistant.listen())
+# assistant.say(assistant.listen())
+
+assistant.reply("Bye")
