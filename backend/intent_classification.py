@@ -1,26 +1,25 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import base64
-import string
-import re
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
 from io import StringIO
-from collections import Counter
-from nltk.corpus import stopwords
+from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-stopwords = stopwords.words('english')
+data = pd.read_csv('backend/data.csv')
 
-df = pd.read_csv('/home/pi/assistant/backend/data.csv')
+# tfidf = TfidfVectorizer(sublinear_tf=True, min_df=1, norm='l2', encoding='latin-1', ngram_range=(1, 2), stop_words='english')
 
-# features = ['text']
+# features = tfidf.fit_transform(data.intent).toarray()
+# labels = data.intent
 
-# train = df[features]
 
-tfidf = TfidfVectorizer(sublinear_tf = True, min_df =5, norm='l2', encoding = 'latin-1', ngram_range=(1, 2), stop_words = 'english')
+X_train, X_test, y_train, y_test = train_test_split(data['text'], data['intent'], random_state = 0)
+count_vect = CountVectorizer()
+X_train_counts = count_vect.fit_transform(X_train)
+tfidf_transformer = TfidfTransformer()
+X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+clf = MultinomialNB().fit(X_train_tfidf, y_train)
 
-features = tfidf.fit_transform(df.text).toarray()
-
-labels = df.intent
-
-print("done")
+print(clf.predict(count_vect.transform(['bye']))) #'leaving'

@@ -1,46 +1,46 @@
-text, intent
-how  are you?, greeting
-hello, greeting
-whats up, greeting
-thanks, greeting
-thank you so much, greeting
-good morning, greeting
-good afternoon, greeting
-bye, leaving
-see you later, leaving
-talk to you later, leaving
-hows the weather, weather
-whats the weather like, weather
-whats the temperature, weather
-temperature, weather
-humidity, weather
-what is the humidity, weather
-how hot is it?, weather
-how are you, greeting
-goodbye, leaving
-quit stop exit, leaving
-good great job, compliment
-"you are amazing, great, awesome, nice, smart, kind, nice", compliment
-you are the best, compliment
-you are stupid, insult
-you are very bad, insult
-very smart, compliment
-you are so bad, insult
-shut up, leaving
-you are very nice smart smart, compliment
-you are the best, compliment
-you re welcome,  not  reply
-tell me a joke please, joke
-joke time, joke
-can you sing..., personal_q
-can you dance, personal_q
-can you are you, personal_q
-who are you, personal_q
-what is your favorite who, personal_q
-what is your name, personal_q
-do you like, personal_q
-do you can you do, personal_q
-where are you, personal_q
-give me the latest news on, news
-tell me news about, news
-give news about, news
+text,intent
+how  are you?,greeting
+hello,greeting
+whats up,greeting
+thanks,greeting
+thank you so much,greeting
+good morning,greeting
+good afternoon,greeting
+bye,leaving
+see you later,leaving
+talk to you later,leaving
+hows the weather,weather
+whats the weather like,weather
+whats the temperature,weather
+temperature,weather
+humidity,weather
+what is the humidity,weather
+how hot is it?,weather
+how are you,greeting
+goodbye,leaving
+quit stop exit,leaving
+good great job,compliment
+"you are amazing,great,awesome,nice,smart,kind,nice",compliment
+you are the best,compliment
+you are stupid,insult
+you are very bad,insult
+very smart,compliment
+you are so bad,insult
+shut up,leaving
+you are very nice smart smart,compliment
+you are the best,compliment
+you re welcome,not  reply
+tell me a joke please,joke
+joke time,joke
+can you sing...,personal_q
+can you dance,personal_q
+can you are you,personal_q
+who are you,personal_q
+what is your favorite who,personal_q
+what is your name,personal_q
+do you like,personal_q
+do you can you do,personal_q
+where are you,personal_q
+give me the latest news on,news
+tell me news about,news
+give news about,news
