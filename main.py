@@ -1,6 +1,7 @@
 import pyttsx3
 import speech_recognition as sr
-from backend.intent_classification import IntentClassifier
+from intentclassification.intent_classification import IntentClassifier
+from reply.reply import reply
 
 class Assistant():
 
@@ -30,20 +31,21 @@ class Assistant():
         intent = intentclassifier.predict(text)
         
         replies = {
-            "leaving" : self.leave
-            # "greeting" : self.greet
+            "leaving" : reply,
+            "greeting" : reply,
+
             }
 
-        reply = replies[intent]
+        reply_func = replies[intent]
 
-        if callable(reply):
-            reply(text) 
+        if callable(reply_func):
+            print(reply_func(intent, text)) 
 
-    def leave(self, text):
-        print("Bye bye")
+    # def leave(self, text):
+    #     print("Bye bye")
 
 intentclassifier = IntentClassifier()
 assistant = Assistant("Assistant")
 # assistant.say(assistant.listen())
 
-assistant.reply("Bye")
+assistant.reply("i have to go")

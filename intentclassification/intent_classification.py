@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 class IntentClassifier:
     def __init__(self):
-        self.data = pd.read_csv('backend/data.csv')
+        self.data = pd.read_csv('intentclassification/data.csv')
         self.train()
 
     def train(self):
