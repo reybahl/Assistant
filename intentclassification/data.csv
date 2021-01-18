@@ -1,5 +1,5 @@
 text,intent
-how  are you?,greeting
+how are you?,greeting
 hello,greeting
 whats up,greeting
 thanks,greeting
@@ -45,3 +45,4 @@ give me the latest news on,news
 tell me news about,news
 give news about,news
 i have to go, leaving
+no one could be better than you,compliment

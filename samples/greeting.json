@@ -1,2 +1,4 @@
-{"hello" :  "test",
-"how are you?" : "beta"}
+{
+    "hello" :  "hello",
+    "how are you?" : ["good", "great", "awesome", "i am good, hope you are too"]
+}
