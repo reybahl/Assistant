@@ -1,4 +1,5 @@
 {
     "hello" :  "hello",
-    "how are you?" : ["good", "great", "awesome", "i am good, hope you are too"]
+    "how are you" : ["good", "great", "awesome", "i am good, hope you are too"],
+    "thank you" : ["You're welcome", "No problem"] 
 }

@@ -26,4 +26,3 @@ class IntentClassifier:
         return self.svm.predict(self.count_vect.transform([text]))[0]
 
 cl = IntentClassifier()
-print(cl.predict("no one could be better than you"))
