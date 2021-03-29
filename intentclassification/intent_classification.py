@@ -24,5 +24,3 @@ class IntentClassifier:
     
     def predict(self, text):
         return self.svm.predict(self.count_vect.transform([text]))[0]
-
-cl = IntentClassifier()

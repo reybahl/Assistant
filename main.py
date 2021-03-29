@@ -2,6 +2,7 @@ from assistant_functions.speak_listen import speak_listen
 from intentclassification.intent_classification import IntentClassifier
 from assistant_functions.reply import reply
 from assistant_functions.weather import weather
+from assistant_functions.location import location
 
 class Assistant:
 
@@ -14,7 +15,8 @@ class Assistant:
         replies = {
             "leaving" : reply,
             "greeting" : reply,
-            "weather" : weather.main
+            "weather" : weather.main,
+            "location" : location.main
             }
 
         reply_func = replies[intent]
