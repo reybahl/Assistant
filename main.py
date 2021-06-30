@@ -21,9 +21,11 @@ class Assistant:
         replies = {
             'leaving' : reply,
             'greeting' : reply,
+            'insult' : reply,
+            'personal_q' : reply,
             'weather' : weather.main,
             'location' : location.main,
-            'open_in_browser':assistant_browser.main
+            'open_in_browser':assistant_browser.main,
             }
 
         reply_func = replies[intent]

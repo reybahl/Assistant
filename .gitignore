@@ -1,2 +1,5 @@
 weathertoken.txt
 *.pyc
+__pycache__/main.cpython-37.pyc
+assistant_functions/__pycache__/location.cpython-37.pyc
+assistant_functions/__pycache__/speak_listen.cpython-37.pyc
