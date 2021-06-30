@@ -6,6 +6,7 @@ class Location:
     def main(self, text, intent):
         samples = {
             "where are we" : {'function' : self.say_location, 'type' : 'location'},
+            "location" : {'function' : self.say_location, 'type' : 'location'},
             "city" : {'function' : self.say_location, 'type' : 'city'},
             "state" : {'function' : self.say_location, 'type' : 'state'},
             "country" : {'function' : self.say_location, 'type' : 'country'}

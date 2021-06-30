@@ -5,7 +5,9 @@ from intentclassification.intent_classification import IntentClassifier
 from assistant_functions.reply import reply
 from assistant_functions.weather import weather
 from assistant_functions.location import location
+from assistant_functions.open_browser import assistant_browser
 import struct
+import multiprocessing
 
 class Assistant:
 
@@ -17,10 +19,11 @@ class Assistant:
         intent = intentclassifier.predict(text)
         
         replies = {
-            "leaving" : reply,
-            "greeting" : reply,
-            "weather" : weather.main,
-            "location" : location.main
+            'leaving' : reply,
+            'greeting' : reply,
+            'weather' : weather.main,
+            'location' : location.main,
+            'open_in_browser':assistant_browser.main
             }
 
         reply_func = replies[intent]
@@ -29,34 +32,58 @@ class Assistant:
             reply_func(text, intent)
 
     def main(self):
-        porcupine = None
+        print("ready")
+        self.porcupine = None
         pa = None
         audio_stream = None
 
 
-        porcupine = pvporcupine.create(keywords=["jarvis"])
+        self.porcupine = pvporcupine.create(keywords=["jarvis"])
 
         pa = pyaudio.PyAudio()
 
         audio_stream = pa.open(
-                        rate=porcupine.sample_rate,
+                        rate=self.porcupine.sample_rate,
                         channels=1,
                         format=pyaudio.paInt16,
                         input=True,
-                        frames_per_buffer=porcupine.frame_length)
+                        frames_per_buffer=self.porcupine.frame_length)
+        
         while True:
-            pcm = audio_stream.read(porcupine.frame_length)
-            pcm = struct.unpack_from("h" * porcupine.frame_length, pcm)
+            
+            try:
+                pcm = audio_stream.read(self.porcupine.frame_length)
+                pcm = struct.unpack_from("h" * self.porcupine.frame_length, pcm)
+            except:
+                audio_stream = pa.open(
+                        rate=self.porcupine.sample_rate,
+                        channels=1,
+                        format=pyaudio.paInt16,
+                        input=True,
+                        frames_per_buffer=self.porcupine.frame_length)
 
-            keyword_index = porcupine.process(pcm)
+            keyword_index = self.porcupine.process(pcm)
 
             if keyword_index >= 0:
                 print("Hotword Detected")
+                
+                try: #Tries terminating an action if it exists
+                    action.terminate()
+                except:
+                    pass
+
                 if audio_stream is not None:
                     audio_stream.close()
-                said = speak_listen.listen()
+                said = speak_listen.listen() #Listens for user input
                 print(said)
+
+                #action = multiprocessing.Process(target=
+
                 self.reply(said)
+                # self.reply(said) Unused
+                # action.start()
+                # action.join()
+                
     
 
 intentclassifier = IntentClassifier()

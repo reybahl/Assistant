@@ -1,5 +1,7 @@
 import pyttsx3
 import speech_recognition as sr
+from playsound import playsound
+
 
 class Speak_Listen:
     def __init__(self):
@@ -19,7 +21,8 @@ class Speak_Listen:
     
         with self.mic as source:
             print("listening")
-            audio = self.r.listen(source)
+            self.r.non_speaking_duration = 0.5
+            audio = self.r.listen(source, timeout=7, phrase_time_limit=5)
 
         return (self.r.recognize_google(audio))
 
