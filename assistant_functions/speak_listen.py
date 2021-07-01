@@ -28,4 +28,3 @@ class Speak_Listen:
         return (self.r.recognize_google(audio))
 
 speak_listen = Speak_Listen()
-speak_listen.say("cary, north carolina, US")
