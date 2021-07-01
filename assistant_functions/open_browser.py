@@ -26,7 +26,8 @@ class AssistantBrowser():
         websites = {
             'google' : 'https://www.google.com',
             'wikipedia' : 'https://en.wikipedia.org/',
-            'kahoot' : 'http://kahoot.it/'
+            'kahoot' : 'https://kahoot.it/',
+            'github' : 'https://github.com/'
         }
         speak_listen.say("Sure!")
         text= text.lower()
@@ -38,7 +39,7 @@ class AssistantBrowser():
         text = text.lower()
         text = text.replace("search for", "search")
         
-        list_of_websites_to_search = ['google', 'wikipedia']
+        list_of_websites_to_search = ['google', 'wikipedia', "github"]
         website_to_search = None
         for website in list_of_websites_to_search:
             if website in text:
@@ -57,7 +58,8 @@ class AssistantBrowser():
         speak_listen.say("Sure!")
         urls_to_search_dict = {
             'google' : 'https://www.google.com/search?q={}',
-            'wikipedia' : 'https://en.wikipedia.org/wiki/Special:Search/{}'
+            'wikipedia' : 'https://en.wikipedia.org/wiki/Special:Search/{}',
+            'github' : "https://github.com/search?q={}"
         }
         search_url = urls_to_search_dict[website]
         url_to_open = search_url.replace("{}", search_term)
