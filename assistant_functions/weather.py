@@ -8,7 +8,7 @@ import pyowm
 
 class Weather:
     def __init__(self):
-        with open('weathertoken.txt', 'r') as weathertoken:
+        with open('weathertoken.txt', 'r') as weathertoken: #not included in this repository
             self.own= pyowm.OWM(weathertoken.read()).weather_manager()
 
     def main(self, text, intent):

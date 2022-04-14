@@ -13,9 +13,12 @@ class Speak_Listen:
 
     def say(self, text):
         """Uses pyttsx3 engine text-to-speech to to say 'text' argument"""
-
-        self.speech_engine.say(text)
-        self.speech_engine.runAndWait()
+        self.speech_engine.connect('finished-utterance', self.stop_speaking)
+        self.speech_engine.say(text, "speech")
+        self.speech_engine.startLoop()
+        
+    def stop_speaking(self, name, completed):
+        self.speech_engine.endLoop()
 
     def listen(self):
         """Uses speech_recognition library to listen to get audio input and understand what the user is saying"""
