@@ -32,7 +32,7 @@ you are the best,compliment
 you re welcome,not  reply
 tell me a joke,joke
 joke time,joke
-can you sing...,personal_q
+can you sing,personal_q
 can you dance,personal_q
 can you are you,personal_q
 who are you,personal_q
@@ -58,3 +58,5 @@ date,date_time
 time,date_time
 what time is it,date_time
 what day month year is it,date_time
+repeat after me,repeat
+repeat what I say,repeat
