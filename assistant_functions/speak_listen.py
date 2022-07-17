@@ -14,6 +14,7 @@ class Speak_Listen:
     def say(self, text):
         """Uses pyttsx3 engine text-to-speech to to say 'text' argument"""
         # self.speech_engine.connect('finished-utterance', self.stop_speaking)
+        print(text)
         self.speech_engine.say(text, "speech")
         self.speech_engine.runAndWait()
         

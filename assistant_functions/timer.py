@@ -1,8 +1,8 @@
-from TimerEvent import TimerEvent
+from assistant_functions.TimerEvent import TimerEvent
 import time
-from determine_most_similar import determine_most_similar_phrase
+from assistant_functions.determine_most_similar import determine_most_similar_phrase
 from word2number import w2n
-from speak_listen import speak_listen
+from assistant_functions.speak_listen import speak_listen
 
 class Timer:
     """
@@ -38,14 +38,14 @@ class Timer:
                     if tok.isdigit():
                         num = int(tok)
                         break
-                if (num == -1):
+                if num != -1:
                     break
 
             speak_listen.say(prompt)
             text = speak_listen.listen()
         
         # execute the correct function, set at the beginning of this function
-        function(num) 
+        function(num)
 
     def classify_action(self, text:str):
         phrases = {
@@ -66,11 +66,15 @@ class Timer:
     def add_timer(self, seconds):
         self.timers.append(TimerEvent(seconds))
         self.timers[len(self.timers)-1].start()
+        speak_listen.say(f"Your timer for {seconds} seconds started now")
     
     def pause_timer(self, index):
         """Pauses the timer at the specified index"""
         if index <= len(self.timers):
             self.timers[index-1].pause()
+            speak_listen.say(f"Your timer {index} is now paused.")
+
+        speak_listen.say(f"You only have {len(self.timers)} timers")
     
     def resume_timer (self, index):
         """continues a paused timer"""
@@ -85,8 +89,4 @@ class Timer:
             # remove its reference
             del self.timers[index-1]
 
-# testing
-if __name__ == "__main__":
-    timer = Timer()
-    timer.main("add timer for two seconds", "timer")
-    timer.main("delete timer one", "timer")
+timer = Timer()
