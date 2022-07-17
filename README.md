@@ -1,7 +1,7 @@
 # Machine Learning Powered Voice Assistant
-This is a machine learning powered virtual voice-based assistant, specifically designed for Raspberry Pi.
+This is a machine learning powered and speech-based virtual assistant specifically designed for Raspberry Pi.
 
-# Currently supported features
+# Currently supported features (more to be added soon)
 * Basic conversation (greetings, questions, etc.)
 * Geolocation
 * Weather (temperature, humidity, etc.) based on current location
