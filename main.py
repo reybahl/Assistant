@@ -1,3 +1,4 @@
+from assistant_functions.timer import timer
 import pvporcupine
 import pyaudio
 from assistant_functions.speak_listen import speak_listen
@@ -31,7 +32,8 @@ class Assistant:
             'location' : location.main,
             'open_in_browser':assistant_browser.main,
             'date_time': date_time.main,
-            'repeat': repeat.repeat
+            'repeat': repeat.repeat,
+            'timer': timer.main
             }
 
         try:

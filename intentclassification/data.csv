@@ -60,3 +60,12 @@ what time is it,date_time
 what day month year is it,date_time
 repeat after me,repeat
 repeat what I say,repeat
+start timer,timer
+new timer,timer
+add timer,timer
+stop timer,timer
+pause timer,timer
+continue timer,timer
+resume timer,timer
+delete timer,timer
+cancel timer,timer
