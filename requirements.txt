@@ -1,3 +1,4 @@
 scikit-learn
 speech_recognition
 pyowm
+word2number

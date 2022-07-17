@@ -6,6 +6,8 @@ from assistant_functions.reply import reply
 from assistant_functions.weather import weather
 from assistant_functions.location import location
 from assistant_functions.open_browser import assistant_browser
+from assistant_functions.date_time import date_time
+from assistant_functions.repeat import repeat
 import struct
 import multiprocessing
 
@@ -17,21 +19,30 @@ class Assistant:
     
     def reply(self, text):
         intent = intentclassifier.predict(text)
-        
+        if intent == 'leaving':
+            speak_listen.say("Exiting")
+            quit()
+
         replies = {
-            'leaving' : reply,
             'greeting' : reply,
             'insult' : reply,
             'personal_q' : reply,
             'weather' : weather.main,
             'location' : location.main,
             'open_in_browser':assistant_browser.main,
+            'date_time': date_time.main,
+            'repeat': repeat.repeat
             }
 
-        reply_func = replies[intent]
+        try:
+            reply_func = replies[intent]
 
-        if callable(reply_func):
-            reply_func(text, intent)
+            if callable(reply_func):
+                reply_func(text, intent)
+        except KeyError:
+            speak_listen.say("Sorry, I didn't understand")
+        except Exception as e:
+            print("Error: " + str(e))
 
     def main(self):
         print("ready")

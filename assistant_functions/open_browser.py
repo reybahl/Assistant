@@ -27,7 +27,8 @@ class AssistantBrowser():
             'google' : 'https://www.google.com',
             'wikipedia' : 'https://en.wikipedia.org/',
             'kahoot' : 'https://kahoot.it/',
-            'github' : 'https://github.com/'
+            'github' : 'https://github.com/',
+            'news' : 'https://news.google.com' 
         }
         speak_listen.say("Sure!")
         text= text.lower()

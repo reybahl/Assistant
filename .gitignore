@@ -3,3 +3,6 @@ weathertoken.txt
 __pycache__/main.cpython-37.pyc
 assistant_functions/__pycache__/location.cpython-37.pyc
 assistant_functions/__pycache__/speak_listen.cpython-37.pyc
+.vscode
+__pycache__/
+personal_q.json
