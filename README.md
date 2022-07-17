@@ -8,6 +8,7 @@ This is a machine learning powered and speech-based virtual assistant specifical
 * Date/time features (day, month, year, etc.)
 * Opening websites (Google, GitHub, Wikipedia, etc.) in the browser
 * Creating, pausing, and deleting timers. Timers run in the background so the program does not wait for the timer to end before listening for more input.
+* Repeating a certain phrase a specified number of times.
 
 # How to run code
 * Download code in a directory called assistant
