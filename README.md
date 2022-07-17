@@ -9,6 +9,7 @@ This is a machine learning powered and speech-based virtual assistant specifical
 * Opening websites (Google, GitHub, Wikipedia, etc.) in the browser
 * Creating, pausing, and deleting timers. Timers run in the background so the program does not wait for the timer to end before listening for more input.
 * Repeating a certain phrase a specified number of times.
+* Exiting on command
 
 # How to run code
 * Download code in a directory called assistant
