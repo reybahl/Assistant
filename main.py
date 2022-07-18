@@ -1,23 +1,25 @@
-from assistant_functions.timer import timer
+import struct
+
 import pvporcupine
 import pyaudio
-from assistant_functions.speak_listen import speak_listen
-from intentclassification.intent_classification import IntentClassifier
-from assistant_functions.reply import reply
-from assistant_functions.weather import weather
+
+from assistant_functions.date_time import date_time
 from assistant_functions.location import location
 from assistant_functions.open_browser import assistant_browser
-from assistant_functions.date_time import date_time
 from assistant_functions.repeat import repeat
-import struct
-import multiprocessing
+from assistant_functions.reply import reply
+from assistant_functions.speak_listen import speak_listen
+from assistant_functions.timer import timer
+from assistant_functions.weather import weather
+from intentclassification.intent_classification import IntentClassifier
+
 
 class Assistant:
 
     def __init__(self, name):
         self.name = name
         
-    
+
     def reply(self, text):
         intent = intentclassifier.predict(text)
         if intent == 'leaving':
@@ -46,14 +48,16 @@ class Assistant:
         except Exception as e:
             print("Error: " + str(e))
 
+
     def main(self):
-        print("ready")
+        print("Ready")
+        
         self.porcupine = None
         pa = None
         audio_stream = None
 
 
-        self.porcupine = pvporcupine.create(keywords=["jarvis"])
+        self.porcupine = pvporcupine.create(keywords=[self.name])
 
         pa = pyaudio.PyAudio()
 
@@ -64,8 +68,8 @@ class Assistant:
                         input=True,
                         frames_per_buffer=self.porcupine.frame_length)
         
+        # listens for hotword
         while True:
-            
             try:
                 pcm = audio_stream.read(self.porcupine.frame_length)
                 pcm = struct.unpack_from("h" * self.porcupine.frame_length, pcm)
@@ -81,26 +85,15 @@ class Assistant:
 
             if keyword_index >= 0:
                 print("Hotword Detected")
-                
-                try: #Tries terminating an action if it exists
-                    action.terminate()
-                except:
-                    pass
 
                 if audio_stream is not None:
                     audio_stream.close()
+
                 said = speak_listen.listen() #Listens for user input
                 print(said)
-
-                #action = multiprocessing.Process(target=
-
                 self.reply(said)
-                # self.reply(said) Unused
-                # action.start()
-                # action.join()
                 
-    
 
 intentclassifier = IntentClassifier()
-assistant = Assistant("Assistant")
+assistant = Assistant("jarvis")
 assistant.main()
