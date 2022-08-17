@@ -20,7 +20,7 @@ how are you,greeting
 goodbye,leaving
 quit stop exit,leaving
 good great job,compliment
-you are amazing great awesome nice smart kind nice",compliment
+you are amazing great awesome nice smart kind nice,compliment
 you are the best,compliment
 you are stupid,insult
 you are very bad,insult
@@ -29,7 +29,6 @@ you are so bad,insult
 shut up,leaving
 you are very nice smart smart,compliment
 you are the best,compliment
-you re welcome,not  reply
 tell me a joke,joke
 joke time,joke
 can you sing,personal_q
