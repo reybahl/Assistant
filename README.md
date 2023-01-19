@@ -26,7 +26,7 @@ The following steps give a brief overview on how the assistant works:
 * For more details on these functions' implementations, see the `/assistant_functions` directory.
 
 
-# How to add access_key to line 60
-* Goto: https://picovoice.ai/platform/porcupine/
+# How to add `access_key` to line 60 in `main.py`
+* Go to https://picovoice.ai/platform/porcupine/
 * Create a account and then grab your API key
 * Paste your API key and DO NOT share it! :)
