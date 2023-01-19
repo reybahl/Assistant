@@ -57,7 +57,7 @@ class Assistant:
         audio_stream = None
 
 
-        self.porcupine = pvporcupine.create(keywords=[self.name])
+        self.porcupine = pvporcupine.create(keywords=[self.name], access_key='')
 
         pa = pyaudio.PyAudio()
 
