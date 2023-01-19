@@ -24,3 +24,9 @@ The following steps give a brief overview on how the assistant works:
 * The `IntentClassifier` class (found in /intentclassifier/intent_classification.py`) classifies the user's intent using the Support Vector Machine (SVM) algorithm that trains on a dataset containing sample user prompts along with their intent.
 * Based on the classified intent, the assistant executes the correct function. This function is found in the `/assistant_functions` directory. This structure makes it easy to add new functionality to the assistant.
 * For more details on these functions' implementations, see the `/assistant_functions` directory.
+
+
+# How to add access_key to line 60
+* Goto: https://picovoice.ai/platform/porcupine/
+* Create a account and then grab your API key
+* Paste your API key and DO NOT share it! :)
